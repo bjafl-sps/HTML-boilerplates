@@ -7,48 +7,18 @@ function updateCurrentDateTime() {
 }
 
 const stopwatchTickMs = 100;
-var ms = 0;
-var sec = 0;
-var min = 0;
-var hour = 0;
+var msLapsed = 0;
+var msLastLap = 0;
 var stopwatchInterval;
 var stopwatchFaceDiv;
 
 function stopwatchTick() {
-  ms += stopwatchTickMs;
-  if (ms >= 1000) {
-    sec++;
-    ms -= 1000;
-  }
-  if (sec >= 60) {
-    min++;
-    sec -= 60;
-  }
-  if (min >= 60) {
-    hour++;
-    min -= 60;
-  }
-  updateStopwatchFace();
+  msLapsed += stopwatchTickMs;
+  updateStopwatchFace(msLapsed);
 }
 
-function updateStopwatchFace() {
-  let time = "";
-  [hour, min, sec].forEach(
-    (n) =>
-      (time +=
-        n.toLocaleString(undefined, {
-          minimumIntegerDigits: 2,
-          useGrouping: false,
-        }) + ":")
-  );
-  time =
-    time.substring(0, time.length - 1) +
-    "." +
-    ms.toLocaleString(undefined, {
-      minimumIntegerDigits: 3,
-      useGrouping: false,
-    });
-  stopwatchFaceDiv.innerHTML = time;
+function updateStopwatchFace(ms) {
+  stopwatchFaceDiv.innerHTML = msToString(ms);
 }
 
 function stopwatchToggle() {
@@ -73,14 +43,47 @@ function stopwatchStop() {
   clearInterval(stopwatchInterval);
   stopwatchInterval = null;
   document.querySelector("#stopwatchToggleBtn").innerHTML = "Start";
-  document.querySelector("#stopwatchResetBtn").disabled = true;
   document.querySelector("#stopwatchLapBtn").disabled = true;
+  if ((msLapsed = 0)) {
+    document.querySelector("#stopwatchResetBtn").disabled = true;
+  }
 }
 
 function stopwatchReset() {
   stopwatchStop();
-  [hour, min, sec, ms] = [0, 0, 0, 0];
-  updateStopwatchFace();
+  msLapsed = 0;
+  updateStopwatchFace(0);
+  document.getElementById("lapTableBlankRow").style.display = null;
+  document.querySelectorAll("*.lapRow").forEach(r => r.remove());
 }
 
-function stopwatchLap() {}
+function stopwatchLap() {
+  let msLap = msLapsed - msLastLap;
+  document.getElementById("lapTableBlankRow").style.display = "none";
+  let row = document.getElementById("stopwatchLapTable").insertRow(-1);
+  row.setAttribute("class", "lapRow");
+  row.insertCell(0).innerHTML = msToString(msLap);
+  row.insertCell(1).innerHTML = msToString(msLapsed);
+  msLastLap = msLapsed;
+}
+
+function msToString(ms) {
+  let timeParts = [
+    Math.floor(ms / 3600000),
+    Math.floor((ms / 60000) % 60),
+    Math.floor((ms / 1000) % 60),
+  ];
+  let timeStringParts = [];
+  timeParts.forEach((t) => timeStringParts.push(addLeadingZeros(t)));
+  let msPart = addLeadingZeros(ms % 1000, 3);
+  return timeStringParts.join(":") + "." + msPart;
+}
+
+function addLeadingZeros(num, digits = 2) {
+  let numString = num.toString();
+  let numStringLength = numString.length;
+  for (i = 0; i < digits - numStringLength; i++) {
+    numString = "0" + numString;
+  }
+  return numString;
+}
