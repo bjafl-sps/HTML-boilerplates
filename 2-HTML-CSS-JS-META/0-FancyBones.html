@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- Simple template WITH META TAGS and Javascript. 
+  
+  - Meta tags provide information about the site, and belong in the <head> section. 
+  - Meta in most computing context refers to 'about self', meaning information about a object, document or other piece of data.
+  - Metadata is a commonly used term, which can be explained as 'data about the data'
+  - Examples of metadata can be file size, last edited date, author, title, languate, format, and so on...
+  - Metadata provides very useful information, both for humans and computers. Metadata helps computers to know how to interpret 
+    and handle data, and gives humans key information about the data like the title and number of pages for a book.
+  - Meta tags in HTML provides such metadata. The data is primarly handled by computer software, like a client browser.
+    Some of the data is never passed on to the end-user, like encoding (<meta charset"...">). Other data, like description and author,
+    will be passed on to the user in certain contexts, and at the same time be used by software like web crawler for search engine 
+    indexing.
+  - Providing metadata is optional, but some key data is highly recommended and need to be included to comply to different
+    universal standards, like WCAG (Web Content Accessibility Guidelines) and other W3C standards and guidelines. 
+    For more information about W3C standards, check out https://www.w3.org/standards/
+    Metatags are also important for web pages to be displayed apropriatly across different devices, 
+    helps with social media integration and so on.
+  - There are a lot of possible meta tags you can use, but there is no need to include more than you need.
+  - Below are some basic meta tags, that can be useful for most webpages.
+
+  -->
+
+<html lang="en">
+  <head>
+    <!-- character encoding -->
+    <!-- Why: 
+    - Encoding is how the document is translated from ones and zeros to the text displayed on screen.
+    - There are many different encodings, but utf-8 is standard now and is able to store most international 
+      characters and symbols.
+    - You can see encoding at the bottom right of VS Code editor. 
+    - Please include following meta-tag to let the client browser know the encoding used in this file is utf-8
+    -->
+    <meta charset="utf-8" />
+
+    <!-- viewport metadata -->
+    <!-- Why:
+    - Important for responsive and mobile compatible web design.
+    - The settings below renders the page in viewport with width set to width of client device.
+    - Scale can be from 0.0 to 10.0, 1 in settings below give 1:1 ratio between viewport width and device width
+    - Check out following link for refrence about available options. The settings below are ok for most cases.
+      https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_other_specifications
+
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title><!-- your title here... --></title>
+    <!-- title displayed in title bar of client web browser -->
+    <!-- optional metadata about page -->
+    <!-- Why:
+    - Provides information about your page
+    - Not displayed to client directly, but are for instance used by search engines to display
+      information about your page in search results.
+  -->
+    <meta name="description" content="PUT_DESCRIPTION_HERE" />
+    <meta name="author" content="PUT_AUTHOR/COMPANY_HERE" />
+
+    <!-- OpenGraph metadata: Optional metadata for social media integration -->
+    <!-- Why:
+    - If you want your page to be easily shared on social media, you should add som basic Open Graph metadata
+    - This data helps post generation on social media, so that new posts includes the image, title and description you want.
+    - Type specification can help pure video / media content to be displayed apropriatly
+    - URL specifivation ensures that the social media post points to the preferred URL (canonical URL) and not som alternative or
+      temporary URL that may fail.
+    - If social media (or similar) integration is not needed, this part can safely be omitted
+    - Below are some basic OpenGraph meta properties that may be useful to include. 
+    - Check out https://ogp.me/ for full refrence and list of available options.
+    -->
+    <meta property="og:title" content="PUT_TITLE_HERE" />
+    <!-- page title -->
+    <meta property="og:type" content="website" />
+    <!-- page type. 'website' is a general refrence to a website. For accepted options, see https://ogp.me/#types -->
+    <meta property="og:url" content="FULL_URL_TO_PAGE" />
+    <!-- url to webpage. Pick canonical URL (the preferred url to the page, if it's reachable by several urls) -->
+    <meta property="og:description" content="PUT_DESCRIPTION_HERE" />
+    <!-- description to be displayed on social media post -->
+    <meta property="og:image" content="PUT_RELATIVE_URL_TO_IMAGE_HERE" />
+    <!-- image to be displayed on social media post -->
+
+    <!-- favicons -->
+    <!-- Why:
+    - Set icon to be displayed in title bar of your browser, used for bookmarks and so on.
+    - Usually a 16x16 pixel image in GIF, PNG, SVG or ICO format.
+    - You don't need to use all the lines below, check comment for explanation
+    -->
+    <link rel="icon" href="/favicon.ico" />
+    <!-- for legacy (old) browser support. -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- for modern browsers. The image file can also be in png, gif or jpg format-->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- used for apple home screen shortcuts. -->
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-touch-icon-120x120.png"
+    />
+    <!-- multiple icons with sizes property can be provided, to fit different devices. -->
+    <!-- Comment: Sizes property can also be applied to rel="icon" links. Browser will pick most suitable icon. SVG is vector format image, and will be rendered when displayed.
+                With vector graphics, different sizes is not needed.-->
+
+    <!-- link to stylesheet resource -->
+    <link rel="stylesheet" href="0-MetaBones.css" />
+    <!-- Refrence to javascript resource (optional, only if using javascript)-->
+    <script src="0-MetaBones.js" ></script>
+  </head>
+
+  <body>
+    <!-- your content here... -->
+  </body>
+</html>

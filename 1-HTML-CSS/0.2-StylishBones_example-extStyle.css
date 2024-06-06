@@ -1,0 +1,80 @@
+
+html {
+    font-family: Roboto, "Segoe UI", Arial;
+  }
+  body {
+    color: #000000;
+    background-color: #d8d8d8;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+  }
+
+  /* Format headers */
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  /* Format tables */
+  table {
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+
+  td,
+  th {
+    border: 1px solid #242424;
+    text-align: start;
+    padding: 0.5rem;
+  }
+
+  th {
+    color: whitesmoke;
+    background-color: darkslategray;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {
+    /* Set every other cell slightly darker. Improves readability. */
+    background-color: rgb(131, 184, 184);
+  }
+
+  table caption {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Text box styling */
+  div.box {
+    width: 70%;
+    background-color: antiquewhite;
+    border: #000000 solid 1px;
+    padding: 1rem;
+    text-align: center;
+    margin:auto;
+  }
+
+  div.box > p {
+    margin: 1rem 0;
+  }
+
+  div.box > h2 {
+    font-size: 2rem;
+    margin: 0 1.5rem;
+    text-transform: capitalize;
+    font-variant-caps: small-caps;
+  }

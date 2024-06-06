@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>HTML-CSS example with meta tags</title>
+    <meta
+      name="description"
+      content="This is a simple example page, with external CSS styles and basic meta tags."
+    />
+    <meta name="author" content="SPS" />
+
+    <meta property="og:title" content="HTML-CSS example with meta tags" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.domain-name.com/web-page.html"
+    />
+    <meta
+      property="og:description"
+      content="This is a simple example page, with external CSS styles and basic meta tags."
+    />
+    <meta property="og:image" content="./social.jpg" />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="0.1-FancyBones_example.css" />
+    <script src="0.1-FancyBones_example.js"></script>
+  </head>
+  <body>
+    <h1>Simple Page with CSS Styling</h1>
+
+    <div class="box">
+      <h2>Simple, yet stylish!</h2>
+      <p>This is a simple HTML-page with basic CSS-styling</p>
+    </div>
+    <h2>Simple Styles Make the Page Come Alive</h2>
+    <p>
+      Say goodbye to boring pages that's difficult to read. Just take a look at
+      this neat table:
+    </p>
+    <table>
+      <caption>
+        Styled table
+      </caption>
+      <tr>
+        <th>HTML</th>
+        <th>table</th>
+        <th>columns</th>
+      </tr>
+      <tr>
+        <td>Rows</td>
+        <td>with</td>
+        <td>data</td>
+      </tr>
+      <tr>
+        <td>that</td>
+        <td>makes</td>
+        <td>no sense</td>
+      </tr>
+      <tr>
+        <td>BUT</td>
+        <td>it</td>
+        <td>is</td>
+      </tr>
+      <tr>
+        <td>hella</td>
+        <td>stylish</td>
+        <td>!</td>
+      </tr>
+    </table>
+    <h1>JavaScript for dynamic content</h1>
+    <h3>... and endless possibilities!</h3>
+    <p>
+      The possibilities really are endless, but for a simple demo, we can use
+      javascript to display the current date and time, which refreshes each time
+      the site is loaded:
+    </p>
+    <p>
+      Today's date is <span id="date"></span>, and last refresh of this page was
+      done at <span id="time"></span>
+    </p>
+    <script>updateCurrentDateTime()</script>
+
+    <p>Here's an implementation of a simple stopwatch:</p>
+    <div id="stopwatch">
+      <div id="stopwatchButtons">
+        <button id="stopwatchToggleBtn" onclick="stopwatchToggle()">Start</button>
+        <button id="stopwatchResetBtn" onclick="stopwatchReset()" disabled>Reset</button>
+        <button id="stopwatchLapBtn" onclick="stopwatchLap()" disabled>Lap</button>
+      </div>
+      <div id="stopwatchFace"></div>
+      <div id="stopwatchLaps">
+        <table id="stopwatchLapTable">
+          <tr>
+            <th>Laptime</th>
+            <th>Total time</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
